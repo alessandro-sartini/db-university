@@ -2,11 +2,24 @@ select *
 from `students`
 where year(`date_of_birth`)=1990;
 
-1 studenti del 1990
+1) studenti del 1990
 
 
 select id,name,cfu 
 from `courses`
 where `cfu`>10
 
-2 cfu >10 
+2) cfu >10 
+
+
+select *
+from `students`
+where 2025-year(`date_of_birth`)>30;
+
+3) studenti con + di 30 anni
+
+
+select id, name , year, period
+from `courses`
+where `year` = 1 AND `period`= 'I semestre' 
+4) tutti i corsi primo anno e 1 semestre
