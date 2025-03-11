@@ -1,0 +1,12 @@
+select *
+from `students`
+where year(`date_of_birth`)=1990;
+
+1 studenti del 1990
+
+
+select id,name,cfu 
+from `courses`
+where `cfu`>10
+
+2 cfu >10 
