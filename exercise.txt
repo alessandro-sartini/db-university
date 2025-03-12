@@ -61,3 +61,50 @@ WHERE `phone` IS NULL;
 
 
 8) Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+
+
+
+
+
+
+
+GROUP BY  
+
+select count(*)
+from students;
+
+
+-- Contare quanti iscritti ci sono stati ogni anno
+select count( *) as 'studenti per anno' , year(enrolment_date) as 'anno iscrizione'
+from students
+group by year(enrolment_date) ;
+
+select *
+from teachers;
+
+-- ontare gli insegnanti che hanno l'ufficio nello stesso edificio 
+select count(*) , office_address
+from teachers
+group by office_address;
+
+
+-- Calcolare la media dei voti di ogni appello d'esame
+
+select *
+from exam_student;
+
+select exam_id,avg( vote)
+from exam_student
+group by exam_id;
+
+-- Contare quanti corsi di laurea ci sono per ogni dipartimento
+
+ select *
+ from degrees;
+
+ select count(*) as 'numero dipartimenti',department_id
+ from degrees
+ group by department_id;
+
+
+
