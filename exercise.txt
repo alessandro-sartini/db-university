@@ -191,3 +191,26 @@ on degrees.department_id= departments.id
 where departments.name like '%matematica%'
 group by teachers.name, teachers.surname, departments.name;
 
+-- BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
+-- per ogni esame, stampando anche il voto massimo. Successivamente,
+-- filtrare i tentativi con voto minimo 18
+
+select *
+from exams;
+
+select count(*),students.name, surname, max(vote) as 'voto alto'
+from students
+join exam_student
+on students.id = exam_student.student_id
+join exams
+on exam_student.exam_id = exams.id
+group by students.name,surname; -- posso omettere il voto
+
+select count(*),students.name, surname,
+ max(vote) as 'voto alto', any(min(vote<=18))
+from students
+join exam_student
+on students.id = exam_student.student_id
+join exams
+on exam_student.exam_id = exams.id
+group by students.name,surname ;
